@@ -1,0 +1,1 @@
+ALTER TABLE users ADD ccna_site varchar(255);
