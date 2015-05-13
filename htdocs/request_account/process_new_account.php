@@ -69,7 +69,6 @@ try {
     }
 } catch(ConfigurationException $e) {
 }
-
 $err = array();
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (!checkLen('name')) {
@@ -82,6 +81,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
           $err[] = 'The Email Address field is empty!';
     } else if (!filter_var($_REQUEST['from'], FILTER_VALIDATE_EMAIL) ) {
           $err[] = 'Your email is not valid!';
+    }
+    if (!checkLen('ccna_site')) {
+        $err[] = 'The CCNA Site field is empty!';
     }
     if (isset($_SESSION['tntcon'])
         && md5($_REQUEST['verif_box']).'a4xn' != $_SESSION['tntcon']
@@ -96,6 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $name      = $_REQUEST["name"];
         $lastname  = $_REQUEST["lastname"];
         $from      = $_REQUEST["from"];
+        $ccna_site      = $_REQUEST["ccna_site"];
         $verif_box = $_REQUEST["verif_box"];
 
         // check to see if verificaton code was correct
@@ -108,6 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                      'Last_name'        => $lastname,
                      'Pending_approval' => 'Y',
                      'Email'            => $from,
+                     'ccna_site'        => $ccna_site,
                     );
         // check email address' uniqueness
         $result = $DB->pselectOne(

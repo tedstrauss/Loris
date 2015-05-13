@@ -64,6 +64,12 @@
      </div>
 </div>
 <div class="form-group">
+    <label class="col-sm-4 control-label">Your CCNA Site: </label>
+    <div class="col-sm-6">
+        <input name="ccna_site" type="text" id="ccna_site"/>
+    </div>
+</div>
+<div class="form-group">
 <label class="col-sm-4 control-label">Type verification code:</label>
  <div class="col-sm-6">
 <input name="verif_box" type="text" id="verif_box" />
