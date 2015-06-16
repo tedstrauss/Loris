@@ -1,0 +1,3 @@
+INSERT INTO StatisticsTabs (ID, ModuleName, SubModuleName, Description, OrderNo) VALUES (6, 'statistics', 'stats_demographic2', 'Demographics 2', 6);
+INSERT INTO StatisticsTabs (ID, ModuleName, SubModuleName, Description, OrderNo) VALUES (7, 'statistics', 'stats_behavrioural2', 'Behavioural 2', 7);
+INSERT INTO StatisticsTabs (ID, ModuleName, SubModuleName, Description, OrderNo) VALUES (8, 'statistics', 'stats_imaging2', 'Imaging 2', 8);
