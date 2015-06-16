@@ -12,3 +12,4 @@
 <script type="text/javascript" src="GetJS.php?Module=statistics&file=form_stats_demographic.js"></script>
 <button  onClick="updateDemographicTab()" class="btn btn-primary btn-small">Submit Query</button>
 
+<h1>hello</h1>
