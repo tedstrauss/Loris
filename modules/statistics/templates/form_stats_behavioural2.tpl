@@ -6,7 +6,7 @@
 </div>
 <button class="btn btn-primary btn-sm" onClick="updateBehaviouralTab()">Submit Query</button>
 
-
+hello world
 
 <div id="behavioural">
     <h2 class="statsH2">Data Entry Statistics  {if $CurrentProject} for {$CurrentProject.Name} {/if}</h2>
