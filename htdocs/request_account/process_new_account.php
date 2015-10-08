@@ -46,6 +46,7 @@ $tpl_data['rand'] = rand(0, 9999);
 $tpl_data['success']     = false;
 $tpl_data['study_title'] = $config->getSetting('title');
 $tpl_data['currentyear'] = date('Y');
+$tpl_data['site_list'] = Utility::getSiteList();
 try {
     $tpl_data['study_logo'] = "../".$config->getSetting('studylogo');
 } catch(ConfigurationException $e) {
@@ -82,8 +83,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     } else if (!filter_var($_REQUEST['from'], FILTER_VALIDATE_EMAIL) ) {
           $err[] = 'Your email is not valid!';
     }
-    if (!checkLen('ccna_site')) {
-        $err[] = 'The CCNA Site field is empty!';
+    if (!checkLen('site')) {
+        $err[] = 'The site field is empty!';
     }
     if (isset($_SESSION['tntcon'])
         && md5($_REQUEST['verif_box']).'a4xn' != $_SESSION['tntcon']
@@ -98,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $name      = $_REQUEST["name"];
         $lastname  = $_REQUEST["lastname"];
         $from      = $_REQUEST["from"];
-        $ccna_site      = $_REQUEST["ccna_site"];
+        $site      = $_REQUEST["site"];
         $verif_box = $_REQUEST["verif_box"];
 
         // check to see if verificaton code was correct
@@ -111,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                      'Last_name'        => $lastname,
                      'Pending_approval' => 'Y',
                      'Email'            => $from,
-                     'ccna_site'        => $ccna_site,
+                     'Site'             => $site,
                     );
         // check email address' uniqueness
         $result = $DB->pselectOne(

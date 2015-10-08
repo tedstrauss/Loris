@@ -1,0 +1,1 @@
+ALTER TABLE usres ADD site varchar(255);

@@ -64,9 +64,13 @@
      </div>
 </div>
 <div class="form-group">
-    <label class="col-sm-4 control-label">Your CCNA Site: </label>
+    <label class="col-sm-4 control-label">Your site: </label>
     <div class="col-sm-6">
-        <input name="ccna_site" type="text" id="ccna_site"/>
+        <select name="site" style="width:156px;">
+            {foreach from=$site_list item=site}
+                <option value="{$site}">{$site}</options>
+            {/foreach}
+        </select>
     </div>
 </div>
 <div class="form-group">
