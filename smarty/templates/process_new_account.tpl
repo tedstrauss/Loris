@@ -66,7 +66,7 @@
 <div class="form-group">
     <label class="col-sm-4 control-label">Your site: </label>
     <div class="col-sm-6">
-        <select name="site" style="width:156px;">
+        <select name="site" id="site" style="width:156px;">
             {foreach from=$site_list item=site}
                 <option value="{$site}">{$site}</options>
             {/foreach}

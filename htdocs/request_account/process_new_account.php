@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                      'Last_name'        => $lastname,
                      'Pending_approval' => 'Y',
                      'Email'            => $from,
-                     'Site'             => $site,
+                     'site'             => $site,
                     );
         // check email address' uniqueness
         $result = $DB->pselectOne(
