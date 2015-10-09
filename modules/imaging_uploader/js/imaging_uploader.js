@@ -36,7 +36,7 @@ function getMessage() {
     "use strict";
     $.ajax({
         type: 'GET',
-        url: 'AjaxHelper.php?Module=mri_upload&script=read_log.php',
+        url: 'AjaxHelper.php?Module=imaging_uploader&script=read_log.php',
         success: function (data) {
             if (data.indexOf("completed") > -1 || data.indexOf("Error") > -1) {
                 if (data.indexOf("\n") > -1) {
@@ -98,11 +98,11 @@ function uploadFile() {
 
     $("#file-input").hide();
     $("#file-progress").show();
-    var formData = new FormData($("#mri_upload")[0]);
+    var formData = new FormData($("#imaging_uploader")[0]);
     formData.append("fire_away", "Upload");
     $.ajax({
         type: 'POST',
-        url: "main.php?test_name=mri_upload",
+        url: "main.php?test_name=imaging_uploader",
         data: formData,
         cache: false,
         contentType: false,
@@ -141,7 +141,7 @@ $(function () {
     $(".submit-button").click(
         function (e){
             if(e.currentTarget.id === "filter"){
-                $("#mri_upload").submit();
+                $("#imaging_uploader").submit();
             } else if (e.currentTarget.id === "upload"){
                 e.preventDefault();
                 uploadFile();
