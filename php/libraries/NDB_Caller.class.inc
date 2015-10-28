@@ -85,7 +85,7 @@ class NDB_Caller
             && isset($_POST['login'])
         ) {
             header("HTTP/1.1 303 See Other");
-            $url = $settings->getBaseURL();
+            $url  = $settings->getBaseURL();
             $url .= Utility::removeCommonAffix($url, $_SERVER['REQUEST_URI']);
             // sending user to the url that was requested
             header("Location: $url");
