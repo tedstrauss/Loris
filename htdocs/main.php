@@ -246,7 +246,7 @@ foreach ($links as $label => $url) {
                             'url'        => $url,
                             'label'      => $label,
                             'windowName' => $WindowName,
-                          );
+                           );
 }
 
 
