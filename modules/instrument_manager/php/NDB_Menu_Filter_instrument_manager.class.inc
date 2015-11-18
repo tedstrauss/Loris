@@ -70,7 +70,7 @@ class NDB_Menu_Filter_instrument_manager extends NDB_Menu_Filter
 
     function _setDataTableRows($count)
     {
-        $config = NDB_Config::singleton();
+        $factory = NDB_Factory::singleton();
         $db = Database::singleton();
         $x = 0;
         foreach ($this->list as $item) {
@@ -91,7 +91,7 @@ class NDB_Menu_Filter_instrument_manager extends NDB_Menu_Filter
                 } else if($key == "Table_Installed") {
                     // This should also check that all the columns exist and have the right type, for new style instruments
                     $exists = $db->pselectOne("SELECT count(*) FROM information_schema.tables WHERE TABLE_SCHEMA=:dbname AND TABLE_NAME=:tablename", array(
-                        'dbname' => $config->getSetting('database')['database'],
+                        'dbname' => $factory->settings()->dbName(),
                         'tablename' => $this->tpl_data['items'][$x]['instrument_name']
                     ));
                     if($exists > 0) {
@@ -125,10 +125,10 @@ class NDB_Menu_Filter_instrument_manager extends NDB_Menu_Filter
     }
 
     function CheckType($tablename, $columnname, $type) {
-        $config = NDB_Config::singleton();
+        $factory = NDB_Factory::singleton();
         $db = Database::singleton();
         $exists = $db->pselectOne("SELECT count(*) FROM information_schema.columns WHERE TABLE_SCHEMA=:dbname AND TABLE_NAME=:tablename AND COLUMN_NAME=:columnname AND DATA_TYPE=:typename", array(
-            'dbname' => $config->getSetting('database')['database'],
+            'dbname' => $factory->settings()->dbName(),
             'columnname' => $columnname,
             'tablename' => $tablename,
             'typename'  => $type
@@ -140,7 +140,7 @@ class NDB_Menu_Filter_instrument_manager extends NDB_Menu_Filter
     }
     
     function CheckTable($instname) {
-        $config = NDB_Config::singleton();
+        $factory = NDB_Factory::singleton();
         $filename = $this->path . "project/instruments/$instname.linst";
         $fp = fopen($filename, "r");
         $db = Database::singleton();
@@ -181,7 +181,7 @@ class NDB_Menu_Filter_instrument_manager extends NDB_Menu_Filter
                 // check the values in the enum
                 $enums = explode("{-}", $pieces[3]);
                 $db_enum = $db->pselectOne("SELECT COLUMN_TYPE FROM information_schema.columns WHERE TABLE_SCHEMA=:dbname AND TABLE_NAME=:tablename AND COLUMN_NAME=:columnname AND DATA_TYPE='enum'", array(
-                    'dbname' => $config->getSetting('database')['database'],
+                    'dbname' => $factory->settings()->dbName(),
                     'columnname' => $name,
                     'tablename' => $instname
                 ));
