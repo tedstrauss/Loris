@@ -9,35 +9,33 @@
 
 <body>
 <div class ="panel-wrapper" id="bvl_feedback_menu">
-  <div id ="panel_content">
+    <div id ="panel_content">
 
-  </div>
+    </div>
 </div><!-- /panel -->
 </body>
 
 <script type="text/javascript" src="GetJS.php?Module=bvl_feedback&file=react.behavioural_feedback_panel.js"></script>
 
 <script type="text/javascript">
+    var feedback_level = {$feedback_level|@json_encode};
+    var candID = {$candID|@json_encode};
+    var PSCID = {$pscid|@json_encode};
+    var sessionID = {$sessionID|@json_encode};
+    var commentID = {$commentID|@json_encode};
+    var select_option = {$FieldNames};
+    var feedback_types = {$feedback_types|@json_encode}
 
-var feedback_level = {$feedback_level|@json_encode};
-var candID = {$candID|@json_encode};
-var PSCID = {$pscid|@json_encode};
-var sessionID = {$sessionID|@json_encode};
-var commentID = {$commentID|@json_encode};
-var select_option = {$FieldNames};
-var feedback_types = {$feedback_types|@json_encode}
 
-  
-  
-  var bvl_panel = RBehaviouralFeedbackPanel({
-	  feedback_level : feedback_level,
-	  candID : candID,
-	  pscid: PSCID,
-	  sessionID : sessionID,
-	  commentID : commentID,
-	  select_options: select_option,
-	  feedback_types: feedback_types
-  });
-  
-React.render(bvl_panel, document.getElementById("panel_content"));
+    var bvl_panel = RBehaviouralFeedbackPanel({
+        feedback_level : feedback_level,
+        candID : candID,
+        pscid: PSCID,
+        sessionID : sessionID,
+        commentID : commentID,
+        select_options: select_option,
+        feedback_types: feedback_types
+    });
+
+    React.render(bvl_panel, document.getElementById("panel_content"));
 </script>
