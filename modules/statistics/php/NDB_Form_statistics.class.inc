@@ -78,6 +78,10 @@ class NDB_Form_statistics extends NDB_Form
         //$DB =& Database::singleton();
     }
 
+    function stats_behavioural2()
+    {
+    }
+
     function stats_behavioural()
     {
         $DB =& Database::singleton();
@@ -193,6 +197,10 @@ class NDB_Form_statistics extends NDB_Form
                     floor($c['all']['complete'] / $c['all']['total']*100);
             }
         }
+    }
+
+    function stats_MRI2()
+    {
     }
 
     function stats_MRI()
@@ -517,6 +525,10 @@ class NDB_Form_statistics extends NDB_Form
             $this->tpl_data['CurrentProject'] = array('ID' => $row['NumericID'], 'Name' => $row['LongName']);
         }
         $this->tpl_data['reliability_completion'] = $this->getReliabilityData();
+    }
+
+    function stats_demographic2()
+    {
     }
 
     function stats_demographic()
