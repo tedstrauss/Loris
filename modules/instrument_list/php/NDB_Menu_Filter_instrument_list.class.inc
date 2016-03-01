@@ -3,6 +3,7 @@
  * The timepoint details menu
  * @package behavioural
  */
+require_once('Instrument_List_ControlPanel.class.inc');
 class NDB_Menu_Filter_instrument_list extends NDB_Menu_Filter
 {
     function _hasAccess()
@@ -20,6 +21,7 @@ class NDB_Menu_Filter_instrument_list extends NDB_Menu_Filter
     }
 
     function getControlPanel() {
+        error_log(print_r($_REQUEST,true));
         $controlPanel = new Instrument_List_ControlPanel($_REQUEST['sessionID']);
         // save possible changes from the control panel...
         $success = $controlPanel->save();
