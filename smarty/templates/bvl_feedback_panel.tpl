@@ -3,8 +3,7 @@
 <meta itemprop="candID" context="{$candID}">
 <meta itemprop="sessionID" context="{$sessionID}">
 <meta itemprop="commentID" context="{$commentID}">
-<script src="{$baseurl}/js/react-with-addons-0.13.3.js"></script>
-
+<script src="/js/react-with-addons-0.13.3.js"></script>
 
 
 <body>
