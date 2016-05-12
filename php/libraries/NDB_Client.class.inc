@@ -104,6 +104,7 @@ class NDB_Client
             . "default-src 'self' 'unsafe-inline'; "
             . "script-src 'self' 'unsafe-inline' 'unsafe-eval'; "
             . "font-src 'self' data:; "
+            . "frame-src https://player.vimeo.com/; "
             . "img-src 'self' data:"
         );
         // start php session
